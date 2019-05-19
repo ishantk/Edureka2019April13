@@ -1,14 +1,33 @@
 package co.edureka.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 // Bean or Model or POJO
+
+@Entity
+@Table(name="MY_EMPLOYEES")
 public class Employee {
 	
 	// Attributes:
+	
+	@Id @GeneratedValue
+	@Column(name="EID")
 	Integer eid;
+	
+	@Column(name="NAME")
 	String name;
+	
+	@Column(name="DESIGNATION")
 	String designation;
+	
+	@Column(name="PHONE")
 	String phone;
+	
+	@Column(name="SALARY")
 	Integer salary;
 	
 	public Employee() {

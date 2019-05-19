@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+
+   <class name="co.edureka.model.CA" table="INHERITANCE" discriminator-value="CA">
+   <cache usage="read-only"/>
+      
+      <id name="id" column="ID">
+         <generator class="increment"/>
+      </id>
+      <discriminator column="TYPE" type="string"/>
+      <property name="num1" column="NUM1" />
+      
+      <subclass name="co.edureka.model.CB" discriminator-value="CB">
+      	<property name="num2" column="NUM2" />	
+      	
+      	<subclass name="co.edureka.model.CC" discriminator-value="CC">
+      	   <property name="num3" column="NUM3" />	
+        </subclass>
+      	
+      </subclass>
+      
+   </class>
+   
+</hibernate-mapping>
