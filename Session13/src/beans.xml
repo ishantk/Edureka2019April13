@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+   <!-- <bean id="fRef" class="co.edureka.bean.Father">
+       <property name="fname" value="John"/>
+       <property name="lname" value="Watson"/>
+       <property name="vehicles" value="3"/>
+   </bean>
+   
+   <bean id="sRef" class="co.edureka.bean.Son" parent="fRef">
+       <property name="fname" value="George"/>
+       <property name="companyName" value="ABC International"/>
+       <property name="salary" value="30000"/>
+   </bean> -->
+   
+  <!--  <bean id="pRef" class="co.edureka.bean.Project">
+       <property name="title" value="Celox"/>
+       <property name="technology" value="JEE"/>
+       <property name="timeLine" value="3"/>
+   </bean>
+   
+   <bean id="mRef" class="co.edureka.bean.Manager">
+       <property name="name" value="John"/>
+       <property name="teamSize" value="10"/>
+       <property name="projectName" value="Cleox ABC"/>
+       <constructor-arg ref="pRef"/> 	Constructor Based Dependency Injection
+       <property name="project" ref="pRef"/> 	Setter Based Dependency Injection
+       <property name="certificates">			Dependency Injection On Collection
+	       	<list>
+	       		<value>OCJP</value>
+	       		<value>CCNA</value>
+	       		<value>AWS</value>
+	       	</list>
+	       	
+	       	<set></set>
+	       	<map></map> Exlpore set and map as collections
+       </property>
+   </bean> -->
+   
+   <bean id="ca" class="co.edureka.bean.CA"/>
+   <bean id="cb" class="co.edureka.bean.CB"/>
+   	<!-- <property name="ca" ref="ca"/> --> <!-- Setter Based Dependency Injection -->
+   <!-- 	<constructor-arg ref="ca"/> -->
+   <!-- </bean> -->
+   
+   <context:annotation-config/> 	<!-- Tag to Support Autowiring Feature in Spring FW -->
+   
+</beans>

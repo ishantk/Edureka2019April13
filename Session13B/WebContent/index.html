@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Table of Number</title>
+
+<script type="text/javascript">
+
+	var request;
+
+	function fetchTable(){
+		var num = document.tableForm.txtNumber.value;
+		var url = "table.jsp?number="+num;
+		request = new XMLHttpRequest();
+		try{
+			request.onreadystatechange = printResponse;
+			request.open("GET", url, true);
+			request.send();
+		}catch(e){
+			alert("Something Went Wrong !!");
+		}
+	}
+
+	function printResponse(){
+		if(request.readyState == 4){
+			var res = request.responseText;
+			document.getElementById("data").innerHTML = res;
+		}
+	}
+	
+</script>
+
+</head>
+<body>
+
+	<center>
+		<h3>Table of a Number:</h3>
+		
+		<form name="tableForm">
+			<input type="text" name="txtNumber" placeholder="eg: 5" onkeyup="fetchTable()"/>
+		</form>
+		
+		<h4>Table is below:</h4>
+		<span id="data">
+		
+		</span>
+	</center>
+
+</body>
+</html>

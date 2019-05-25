@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+   <bean id="pRef" class="co.edureka.bean.Product">
+       <property name="name" value="iPhone X"/>
+       <property name="brandName" value="Apple"/>
+       <property name="price" value="70000"/>
+       <property name="inventory" value="3"/>
+   </bean>
+   
+   <bean id="befAdv" class="co.edureka.bean.BeforeAdvice"/>
+   <bean id="aftAdv" class="co.edureka.bean.AfterAdvice"/>
+   
+   <!-- Configure ProxyFactoryBean API for AOP-->
+   <bean id="pRefProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+       <property name="target" ref="pRef"/>
+       <property name="interceptorNames">
+       	<list>
+       		<value>befAdv</value>	<!-- Pre Processing -->
+       		<value>aftAdv</value>	<!-- Post Processing -->
+       	</list>
+       </property>
+   </bean>
+  
+</beans>
